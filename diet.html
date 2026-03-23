@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Diet Plans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bander.css">
+     <link rel="stylesheet" href="diet.css">
+
+</head>
+<body>
+
+<canvas id="glitterCanvas"></canvas>
+
+     <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="scrollToTop()">Fitness<span>Pro AI</span></div>
+            <div class="header-actions" id="guestActions">
+                <button class="auth-btn-header login-btn" onclick="goToLogin()">Login</button>
+                <button class="auth-btn-header signup-btn" onclick="goToSignup()">Sign Up</button>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="workout.html">Workout</a>
+                <a href="diet.html">Diet Plans</a>
+                <a href="dashboard.html">Contact</a>
+                <a id="chat-toggle" class="chat-btn" title="AI Fitness Helper">🤖</a>
+            </nav>
+            <div class="profile-container" id="userActions" style="display: none;">
+                <div class="profile-icon" onclick="toggleProfileMenu()">U</div>
+                <div class="profile-dropdown" id="profileMenu">
+                    <a href="profile.html" target="_blank">✏️ Edit Profile</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- Calorie Calculator Section -->
+<section class="bmi-section" id="calorie">
+    <div class="calculator-container">
+
+        <!-- Calorie Calculator -->
+        <div class="bmi-card">
+            <h2>🔥 Calorie Calculator</h2>
+            <p class="muted">Estimate daily energy needs and suggested macros.</p>
+            <form id="cal-form">
+
+                <!-- Row 1: Weight & Height -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Weight (kg)</label>
+                        <input id="c-weight" type="number" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Height (cm)</label>
+                        <input id="c-height" type="number" required />
+                    </div>
+                </div>
+
+                <!-- Row 2: Age & Gender -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input id="c-age" type="number" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select id="c-gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 3: Activity & Goal -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Activity level</label>
+                        <select id="c-activity">
+                            <option value="Sedentary">Sedentary</option>
+                            <option value="Light">Light</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Active">Active</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Goal</label>
+                        <select id="c-goal">
+                            <option value="Maintain">Maintain</option>
+                            <option value="Lose">Lose</option>
+                            <option value="Gain">Gain</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="bmi-btn" type="submit">Calculate Calories</button>
+            </form>
+            <div class="bmi-result" id="calResult"></div>
+        </div>
+
+    </div>
+</section>
+<div class="diet-buttons">
+    <button onclick="showDiet('weight_loss')">Weight Loss</button>
+    <button onclick="showDiet('weight_gain')">Weight Gain</button>
+    <button onclick="showDiet('maintenance')">Maintenance</button>
+</div>
+
+<div class="meal-type-buttons hidden" id="meal-tabs">
+    <button onclick="filterMeal('breakfast')">Breakfast</button>
+    <button onclick="filterMeal('lunch')">Lunch</button>
+    <button onclick="filterMeal('dinner')">Dinner</button>
+    <button onclick="filterMeal('snacks')">Snacks</button>
+</div>
+
+<section id="diet-details" class="hidden">
+    <h2 id="diet-title">Diet Title</h2>
+    <div id="meals-container" class="meals-container"></div>
+</section>
+
+<!-- Modal -->
+<div id="meal-modal" class="meal-modal">
+  <div class="modal-content">
+    <h3 id="modal-name">Meal Name</h3>
+    <img id="modal-image" src="" alt="">
+    <h4>Ingredients:</h4>
+    <ul id="modal-ingredients" class="glow-list"></ul>
+    <h4>Steps:</h4>
+    <ol id="modal-steps" class="glow-list"></ol>
+    <span class="close-modal" onclick="closeModal()">×</span>
+  </div>
+</div>
+<div id="chat-panel" class="chat-panel">
+        <div class="chat-header">
+            <span>✨ Fitness AI Helper</span>
+            <button id="chat-close" class="chat-close">×</button>
+        </div>
+        <div id="chat-msgs" class="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type 'morning exercise', 'cardio', 'leg workout'...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+
+    <div id="modal-bg" class="modal-bg">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title">Loading Results...</h2>
+                <button id="modal-close" class="modal-close">×</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+<script src="bander.js"></script>
+   
+<script src="script.js"></script>
+<script src="diet.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - FitnessPro AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="glitterCanvas"></canvas>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="window.location.href='index.html'">Fitness<span>Pro AI</span></div>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card signup-card">
+            <h1>💪 Complete Fitness Profile</h1>
+            <p>Create your personalized fitness journey</p>
+            
+            <form id="signupForm" onsubmit="handleSignup(event)" novalidate>
+                <!-- Basic Info -->
+                <div class="form-section">
+                    <h3>👤 Basic Information</h3>
+                    <input type="text" id="signupName" placeholder="Full Name *" required>
+                    <input type="email" id="signupEmail" placeholder="Email Address *" required>
+                    <input type="password" id="signupPassword" placeholder="Password *" required>
+                </div>
+
+                <!-- Fitness Details -->
+                <div class="form-section">
+                    <h3>📏 Body Stats</h3>
+                    <div class="input-grid">
+                        <input type="number" id="weight" placeholder="Weight (kg)" step="0.1" required>
+                        <input type="number" id="height" placeholder="Height (cm)" required>
+                        <input type="number" id="age" placeholder="Age" min="16" max="80" required>
+                    </div>
+                </div>
+
+                <!-- Fitness Goal -->
+                <div class="form-section">
+                    <h3>🎯 Fitness Goal</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="goal" value="loss" required>
+                            <span class="radio-custom">
+                                <span class="radio-icon">🔥</span>
+                                Weight Loss
+                            </span>
+                            <small>Reduce fat, get lean</small>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="goal" value="gain">
+                            <span class="radio-custom">
+                                <span class="radio-icon">💪</span>
+                                Muscle Gain
+                            </span>
+                            <small>Build muscle mass</small>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="goal" value="maintain">
+                            <span class="radio-custom">
+                                <span class="radio-icon">⚖️</span>
+                                Maintain Weight
+                            </span>
+                            <small>Stay fit & healthy</small>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Experience Level -->
+                <div class="form-section">
+                    <h3>🏋️ Experience Level</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="level" value="beginner" required>
+                            <span class="radio-custom">
+                                <span class="radio-icon">🥚</span>
+                                Beginner
+                            </span>
+                            <small>Just starting out</small>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="level" value="intermediate">
+                            <span class="radio-custom">
+                                <span class="radio-icon">🥩</span>
+                                Intermediate
+                            </span>
+                            <small>Some experience</small>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="level" value="advanced">
+                            <span class="radio-custom">
+                                <span class="radio-icon">🥇</span>
+                                Advanced
+                            </span>
+                            <small>Experienced athlete</small>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="gender-section">
+                    <h3>⚤ Gender</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="gender" value="male" required>
+                            <span class="radio-custom">
+                                <span class="radio-icon">♂️</span>
+                                Male
+                            </span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="gender" value="female">
+                            <span class="radio-custom">
+                                <span class="radio-icon">♀️</span>
+                                Female
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="auth-btn large-btn">🚀 Create My Fitness Profile</button>
+            </form>
+            
+            <div class="auth-switch">
+                <span>Already have account?</span>
+                <a href="login.html">Login Here</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

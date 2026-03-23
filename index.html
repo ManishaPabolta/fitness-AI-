@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPro AI - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bander.css">
+</head>
+<body>
+    <!-- Glitter Canvas Background -->
+    <canvas id="glitterCanvas"></canvas>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="scrollToTop()">Fitness<span>Pro AI</span></div>
+            <div class="header-actions" id="guestActions">
+                <button class="auth-btn-header login-btn" onclick="goToLogin()">Login</button>
+                <button class="auth-btn-header signup-btn" onclick="goToSignup()">Sign Up</button>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="workout.html">Workout</a>
+                <a href="diet.html">Diet Plans</a>
+                <a href="dashboard.html">Contact</a>
+                <a id="chat-toggle" class="chat-btn" title="AI Fitness Helper">🤖</a>
+            </nav>
+            <div class="profile-container" id="userActions" style="display: none;">
+                <div class="profile-icon" onclick="toggleProfileMenu()">U</div>
+                <div class="profile-dropdown" id="profileMenu">
+                    <a href="profile.html" target="_blank">✏️ Edit Profile</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+   
+    <main class="home-content">
+       
+        <section class="hero-section" id="hero">
+            <div class="hero">
+                <h1>Your Dream Body <span>Starts Here</span></h1>
+                <p>AI-Powered Personalized Fitness • 15K+ Success Stories • Real Results</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">15K</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">300+</span>
+                        <span class="stat-label">Workouts</span>
+                    </div>
+                </div>
+                <div class="scroll-down" onclick="scrollToDashboard()">
+                    <span>Scroll to Explore</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section class="dashboard-section" id="dashboard">
+            <div class="section-container">
+                <h2 id="welcomeMessage">Welcome Back, Champion! 💪</h2>
+                <div class="dashboard-grid">
+                    <!-- User Stats Card -->
+                    <div class="dashboard-card quick-stats">
+                        <h3>Your Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value" id="userBMI">-</span>
+                                <span class="stat-label">BMI</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="userGoal">-</span>
+                                <span class="stat-label">Goal</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="userLevel">-</span>
+                                <span class="stat-label">Level</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="workoutsDone">0</span>
+                                <span class="stat-label">Workouts</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Card -->
+                    <div class="dashboard-card quick-actions">
+                        <h3>Quick Actions</h3>
+                        <button class="quick-btn primary" onclick="scrollToWorkouts()">Start Workout</button>
+                        <button class="quick-btn secondary" onclick="scrollToDiet()">Diet Plan</button>
+                        <button class="quick-btn" onclick="window.open('profile.html', '_blank')">Edit Profile</button>
+                    </div>
+
+                    <!-- Today's Plan Card -->
+                    <div class="dashboard-card today-plan">
+                        <h3>Today's Plan</h3>
+                        <div class="plan-content">
+                            <div class="plan-item">
+                                <span class="plan-icon">🏋️</span>
+                                <span>Chest & Triceps</span>
+                                <span class="plan-time">45 min</span>
+                            </div>
+                            <div class="plan-item">
+                                <span class="plan-icon">🍗</span>
+                                <span>High Protein Meal</span>
+                                <span class="plan-time">30 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workouts Section -->
+        <section class="workouts-section" id="workouts">
+            <div class="section-container">
+                <h2>🔥 Workout Programs</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">💪</div>
+                        <h3>Strength Training</h3>
+                        <p>Build muscle with progressive overload</p>
+                        <!-- <button class="card-btn" onclick="startWorkout('strength')">Start Now</button> -->
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔥</div>
+                        <h3>Fat Burn</h3>
+                        <p>HIIT + Cardio for maximum fat loss</p>
+                        <!-- <button class="card-btn" onclick="startWorkout('fatburn')">Start Now</button> -->
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Quick 15 Min</h3>
+                        <p>No equipment home workout</p>
+                        <!-- <button class="card-btn" onclick="startWorkout('quick')">Start Now</button> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diet Section -->
+        <section class="diet-section" id="diet">
+            <div class="section-container">
+                <h2>🍎 Personalized Diet Plans</h2>
+                <div class="diet-grid">
+                    <div class="diet-card">
+                        <h3>Weight Loss</h3>
+                        <p>1800 Cal • High Protein</p>
+                        <div class="diet-meals">
+                            <div>🥚 Egg Whites</div>
+                            <div>🍗 Chicken Breast</div>
+                            <div>🥗 Veggies</div>
+                        </div>
+                    </div>
+                    <div class="diet-card">
+                        <h3>Muscle Gain</h3>
+                        <p>2800 Cal • Bulking</p>
+                        <div class="diet-meals">
+                            <div>🍳 Omelette</div>
+                            <div>🐟 Salmon</div>
+                            <div>🍚 Rice</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+     
+
+    </main>
+
+    <div id="chat-panel" class="chat-panel">
+        <div class="chat-header">
+            <span>✨ Fitness AI Helper</span>
+            <button id="chat-close" class="chat-close">×</button>
+        </div>
+        <div id="chat-msgs" class="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type 'morning exercise', 'cardio', 'leg workout'...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+
+    <div id="modal-bg" class="modal-bg">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title">Loading Results...</h2>
+                <button id="modal-close" class="modal-close">×</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="bander.js"></script>
+</body>
+</html>

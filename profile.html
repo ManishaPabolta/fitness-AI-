@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - FitnessPro AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="glitterCanvas"></canvas>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="window.location.href='index.html'">Fitness<span>Pro AI</span></div>
+            <div class="profile-container">
+                <div class="profile-icon" onclick="toggleProfileMenu()">U</div>
+                <div class="profile-dropdown" id="profileMenu">
+                    <a href="profile.html">✏️ Edit Profile</a>
+                    <a href="#">⚙️ Settings</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-content">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar" id="profileAvatar" onclick="document.getElementById('photoInput').click()">
+                    <i class="camera-icon">📸</i>
+                </div>
+                <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                <h1 id="profileName">Your Name</h1>
+                <p id="profileEmail">email@example.com</p>
+                <div class="profile-stats">
+                    <span>📏 BMI: <strong id="profileBMI">0.0</strong></span>
+                    <span>🎯 Goal: <strong id="profileGoal">-</strong></span>
+                </div>
+            </div>
+
+            <form id="profileForm">
+                <div class="profile-grid compact-grid">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" id="age" min="16" max="80">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight</label>
+                        <input type="number" id="weight" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Height</label>
+                        <input type="number" id="height">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select id="gender">
+                            <option value="male">Male ♂️</option>
+                            <option value="female">Female ♀️</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Goal</label>
+                        <select id="goal">
+                            <option value="loss">Weight Loss 🔥</option>
+                            <option value="gain">Muscle Gain 💪</option>
+                            <option value="maintain">Maintain ⚖️</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Level</label>
+                        <select id="level">
+                            <option value="beginner">Beginner 🥚</option>
+                            <option value="intermediate">Intermediate 🥩</option>
+                            <option value="advanced">Advanced 🥇</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button type="submit" class="btn-primary compact-btn">💾 Save</button>
+                     <a href="#" onclick="logout()" class="btn-primary compact-btn">🚪 Logout</a>
+                    <button type="button" class="btn-secondary compact-btn" onclick="window.location.href='index.html'">← Home</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

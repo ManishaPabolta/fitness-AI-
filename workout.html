@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPro AI Workout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bander.css">
+    <link rel="stylesheet" href="workout.css">
+</head>
+<body>
+   
+    <canvas id="glitterCanvas"></canvas>
+
+  <header class="header">
+        <div class="container">
+            <div class="logo" onclick="scrollToTop()">Fitness<span>Pro AI</span></div>
+            <div class="header-actions" id="guestActions">
+                <button class="auth-btn-header login-btn" onclick="goToLogin()">Login</button>
+                <button class="auth-btn-header signup-btn" onclick="goToSignup()">Sign Up</button>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="workout.html">Workout</a>
+                <a href="diet.html">Diet Plans</a>
+                <a href="dashboard.html">Contact</a>
+                <a id="chat-toggle" class="chat-btn" title="AI Fitness Helper">🤖</a>
+            </nav>
+            <div class="profile-container" id="userActions" style="display: none;">
+                <div class="profile-icon" onclick="toggleProfileMenu()">U</div>
+                <div class="profile-dropdown" id="profileMenu">
+                    <a href="profile.html" target="_blank">✏️ Edit Profile</a>
+                    <a href="#" onclick="logout()">🚪 Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="workouts-grid" id="workoutsGrid"></div>
+
+<!-- Workout Modal -->
+<div id="workoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeWorkoutModal()">&times;</span>
+        <div class="modal-header" id="modalWorkoutTitle"></div>
+        <div class="exercise-grid" id="exercisesGrid"></div>
+    </div>
+</div>
+
+<!-- Steps Modal -->
+<div id="stepsModal" class="steps-modal">
+    <div class="steps-content">
+        <div class="steps-header">
+            <span class="close" onclick="closeStepsModal()" style="float: right; font-size: 1.5em; cursor: pointer;">&times;</span>
+            <h3 id="stepsTitle"></h3>
+        </div>
+        <ul class="steps-list" id="stepsList"></ul>
+    </div>
+</div>
+<div id="chat-panel" class="chat-panel">
+        <div class="chat-header">
+            <span>✨ Fitness AI Helper</span>
+            <button id="chat-close" class="chat-close">×</button>
+        </div>
+        <div id="chat-msgs" class="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type 'morning exercise', 'cardio', 'leg workout'...">
+            <button id="chat-send">➤</button>
+        </div>
+    </div>
+
+    <div id="modal-bg" class="modal-bg">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modal-title">Loading Results...</h2>
+                <button id="modal-close" class="modal-close">×</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+   <script src="bander.js"></script>
+
+
+<script src="workout.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
