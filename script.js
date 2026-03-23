@@ -1,8 +1,4 @@
-// ============================================
-// FitnessPro AI - PERFECT WORKING SCRIPT (ENGLISH)
-// ============================================
 
-// Global State
 let currentUser = null;
 let usersDB = {};
 
@@ -511,10 +507,8 @@ function toggleProfileMenu() {
 }
 
 function logout() {
-    if (confirm('Are you sure you want to logout?')) {
-        localStorage.removeItem('currentUser');
-        window.location.href = 'index.html';
-    }
+    localStorage.removeItem('currentUser');
+    window.location.href = 'login.html'; // ✅ fix
 }
 
 function initPhotoUpload() {

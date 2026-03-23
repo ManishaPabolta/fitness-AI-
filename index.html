@@ -199,6 +199,15 @@
             <div id="modal-body" class="modal-body"></div>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const user = localStorage.getItem("currentUser");
+
+        if (user) {
+            window.location.href = "index.html";
+        }
+    });
+</script>
 
     <script src="script.js"></script>
     <script src="bander.js"></script>
